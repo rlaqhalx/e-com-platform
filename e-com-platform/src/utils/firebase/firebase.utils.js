@@ -13,11 +13,15 @@ const firebaseConfig = {
 };
 
 // Initialize Firebase
+// This is INSTANCE
 const firebaseApp = initializeApp(firebaseConfig);
 
-const provider = new GoogleAuthProvider();
+// provider = google (ex.facebook etc.)
+// This is CLASS
+const googleProvider = new GoogleAuthProvider();
 
-provider.setCustomParameters({
+// This is INSTANCE
+googleProvider.setCustomParameters({
     prompt: "select_account"
 })
 
@@ -26,7 +30,9 @@ export const auth = getAuth();
 //     signInWithPopup(auth, provider);
 // }
 
-export const signInWithGooglePopup = () => signInWithPopup(auth,provider); 
+export const signInWithGooglePopup = () => signInWithPopup(auth, googleProvider); 
+export const signInWithGoogleRedirect = () => signInWithRedirect(auth, googleProvider);
+
 
 export const db = getFirestore();
 
