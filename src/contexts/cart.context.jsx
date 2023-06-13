@@ -18,7 +18,6 @@ const addCartItem = (cartItems, productToAdd) => {
     return [...cartItems, {...productToAdd, quantity: 1}];
 };
 
-
 // 3) In order to make removeItemFromCart Function to be used thoughout the code
 // we need to create helper function called removeCartItem
 
