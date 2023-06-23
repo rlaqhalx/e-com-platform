@@ -1,6 +1,5 @@
-import { useDispatch, useSelector} from "react-redux";
-import { addItemToCart } from "../../store/cart/cart.action";
-import { selectCartItems } from "../../store/cart/cart.selector";
+import { useDispatch} from "react-redux";
+import { addItemToCart } from "../../store/cart/cart.reducer";
 import Button from "../button/button.component";
 
 import {
@@ -19,9 +18,9 @@ const ProductCard = ({ product }) => {
   // onClick = {() => addItemToCart(product)} 
   // BUT for optimazation, create the below function 
 
-  const cartItems = useSelector(selectCartItems)
   const dispatch = useDispatch();
-  const addProductToCart = () => dispatch(addItemToCart(cartItems, product));
+
+  const addProductToCart = () => dispatch(addItemToCart(product));
 
   return (
     <ProductCartContainer>
