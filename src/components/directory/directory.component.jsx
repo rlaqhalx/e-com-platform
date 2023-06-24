@@ -2,36 +2,44 @@ import DirectoryItem from '../directory-item/directory-item.component';
 
 import { DirectoryContainer } from './directory.styles';
 
+import raincoatsImg from '../../assets/preview-image/output-onlinejpgtools.jpg'
+import sweaterImg from '../../assets/preview-image/sweaterImg.jpg'
+import bandanaImg from '../../assets/preview-image/bandana.webp'
+import foodImg from '../../assets/preview-image/food.webp'
+import toyImg from '../../assets/preview-image/toy.jpg'
+
+
+
 const categories = [
   {
     id: 1, 
-    title: 'Hats',
-    imageUrl: "https://i.ibb.co/cvpntL1/hats.png",
+    title: 'Sweater',
+    imageUrl: sweaterImg,
     route: 'shop/hats'
   },
   {
     id: 2,
-    title: 'Jackets',
-    imageUrl: "https://i.ibb.co/px2tCc3/jackets.png",
+    title: 'Raincoats',
+    imageUrl: raincoatsImg,
     route: 'shop/jackets'
 
   },
   {
     id: 3,
-    title: 'Sneakers',
-    imageUrl: "https://i.ibb.co/0jqHpnp/sneakers.png",
+    title: 'Accessories',
+    imageUrl: bandanaImg,
     route: 'shop/sneakers'
   },
   {
     id: 4,
-    title: 'Womens',
-    imageUrl: "https://i.ibb.co/GCCdy8t/womens.png",
+    title: 'Foods',
+    imageUrl: foodImg,
     route: 'shop/womens'
   },
   {
     id: 5,
-    title: 'Mens',
-    imageUrl: "https://i.ibb.co/R70vBrQ/men.png",
+    title: 'Toys',
+    imageUrl: toyImg,
     route: 'shop/mens'
   },
 ];

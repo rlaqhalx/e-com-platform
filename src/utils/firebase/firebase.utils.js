@@ -1,4 +1,5 @@
-import { initializeApp } from 'firebase/app';
+import { initializeApp } from "firebase/app";
+
 import {
   getAuth,
   signInWithRedirect,
@@ -8,7 +9,7 @@ import {
   signInWithEmailAndPassword,
   signOut,
   onAuthStateChanged,
-} from 'firebase/auth';
+} from "firebase/auth";
 import {
   getFirestore,
   doc,
@@ -18,8 +19,7 @@ import {
   writeBatch,
   query,
   getDocs,
-} from 'firebase/firestore';
-
+} from "firebase/firestore";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -33,7 +33,7 @@ const firebaseConfig = {
 
 // Initialize Firebase
 // This is INSTANCE
-const firebaseApp = initializeApp(firebaseConfig);
+const firebaseBase = initializeApp(firebaseConfig);
 
 // provider = google (ex.facebook etc.)
 // This is CLASS
@@ -50,10 +50,24 @@ export const auth = getAuth();
 //     signInWithPopup(auth, provider);
 // }
 
-// These are interface layer functions 
-export const signInWithGooglePopup = () =>
-  signInWithPopup(auth, googleProvider);
-  
+// These are interface layer functions
+// export const signInWithGooglePopup = () =>
+//   signInWithPopup(auth, googleProvider);
+
+export const signInWithGooglePopup = async () => {
+  try {
+    const userCredential = await signInWithPopup(auth, googleProvider);
+    const user = userCredential.user;
+
+    // Return the user authentication information
+    return user;
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
+};
+
+
 export const signInWithGoogleRedirect = () =>
   signInWithRedirect(auth, googleProvider);
 
@@ -79,7 +93,7 @@ export const addCollectionAndDocuments = async (
 
 // get Cartegories Collection from db ** HASH TABLES
 export const getCategoriesAndDocuments = async () => {
-  const collectionRef = collection(db, 'categories');
+  const collectionRef = collection(db, "categories");
   const q = query(collectionRef);
 
   const querySnapshot = await getDocs(q);
@@ -93,10 +107,7 @@ export const createUserDocumentFromAuth = async (
   if (!userAuth) return;
 
   const userDocRef = doc(db, "users", userAuth.uid);
-  // console.log(userDocRef)
   const userSnapShot = await getDoc(userDocRef);
-  //console.log(userSnapShot)
-  // console.log(userSnapShot.exists()) // does it exist in db? -> t/f
 
   // if user data does not exists
   // create / set the document ith the data from userAuth in my collection
@@ -117,7 +128,7 @@ export const createUserDocumentFromAuth = async (
     }
   }
   // return userDocRef
-  return userDocRef;
+  return userAuth;
 };
 
 export const createAuthUserWithEmailAndPassword = async (email, password) => {
@@ -126,13 +137,53 @@ export const createAuthUserWithEmailAndPassword = async (email, password) => {
   return await createUserWithEmailAndPassword(auth, email, password);
 };
 
+// export const signInAuthUserWithEmailAndPassword = async (email, password) => {
+//   if (!email || !password) return;
+
+//   return await signInWithEmailAndPassword(auth, email, password);
+// };
+
+// changed from above to below to get displayName
+
 export const signInAuthUserWithEmailAndPassword = async (email, password) => {
   if (!email || !password) return;
+  
+  try {
+    const userCredential = await signInWithEmailAndPassword(
+      auth,
+      email,
+      password
+    );
+    const user = userCredential.user;
 
-  return await signInWithEmailAndPassword(auth, email, password);
+    // Listen for changes in user authentication state
+    return new Promise((resolve) => {
+      const unsubscribe = onAuthStateChanged(auth, (currentUser) => {
+        if (currentUser) {
+          const userId = currentUser.uid;
+          const userRef = doc(db, "users", userId);
+
+          getDoc(userRef)
+          .then((doc)=> {
+            if(doc.exists) {
+              const displayName = doc.data().displayName;
+              resolve(displayName);
+            } else {
+              console.log('user does not exist')
+            }
+          })
+          unsubscribe(); 
+        }
+      });
+    });
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
 };
 
-export const signOutUser = async () =>  await signOut(auth);
+
+export const signOutUser = async () => await signOut(auth);
 
 export const onAuthStateChangedListener = (callback) =>
   onAuthStateChanged(auth, callback);

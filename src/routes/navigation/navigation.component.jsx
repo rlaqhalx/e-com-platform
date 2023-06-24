@@ -8,6 +8,7 @@ import CartDropdown from '../../components/cart-dropdown/cart-dropdown.component
 import { selectCurrentUser } from '../../store/user/user.selector';
 import { selectIsCartOpen } from '../../store/cart/cart.selector';
 import { ReactComponent as CrwnLogo } from '../../assets/crown.svg';
+import { ReactComponent as CorgiLogo } from '../../assets/corgi_logo.svg';
 import { signOutUser } from '../../utils/firebase/firebase.utils';
 
 import {
@@ -15,25 +16,38 @@ import {
   NavLinks,
   NavLink,
   LogoContainer,
+  StyledText,
 } from './navigation.styles';
 
-const Navigation = () => {
+const Navigation = (props) => {
   const currentUser = useSelector(selectCurrentUser);
   const isCartOpen = useSelector(selectIsCartOpen)
+  const {userName} = props;
+  console.log('Current User:', currentUser); // Add this line to display currentUser in the console
+  console.log("HI",userName)
+
 
   return (
     <Fragment>
       <NavigationContainer>
         <LogoContainer to='/'>
-          <CrwnLogo className='logo' />
+          {/* <CrwnLogo className='logo' /> */}
+          {/* <CorgiLogo className='logo'/> */}
+          <CorgiLogo className='logo'/>
+
         </LogoContainer>
         <NavLinks>
           <NavLink to='/shop'>SHOP</NavLink>
 
           {currentUser ? (
+            <>
             <NavLink as='span' onClick={signOutUser}>
               SIGN OUT
             </NavLink>
+            <StyledText>
+             Hello {userName.split(" ")[0]} {':)'}
+            </StyledText>
+            </>
           ) : (
             <NavLink to='/auth'>SIGN IN</NavLink>
           )}
