@@ -11,7 +11,7 @@ const SHOP_DATA = [
         {
           id: 2,
           name: 'Blue Beanie',
-          imageUrl: 'https://i.ibb.co/ypkgK0X/blue-beanie.png',
+          imageUrl: 'gs://e-com-platform-db.appspot.com/sweater_img/sweater_1_1.webp',
           price: 18,
         },
         {

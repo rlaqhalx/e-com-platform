@@ -15,32 +15,32 @@ const categories = [
     id: 1, 
     title: 'Sweater',
     imageUrl: sweaterImg,
-    route: 'shop/hats'
+    route: 'shop/sweaters'
   },
   {
     id: 2,
     title: 'Raincoats',
     imageUrl: raincoatsImg,
-    route: 'shop/jackets'
+    route: 'shop/raincoats'
 
   },
   {
     id: 3,
     title: 'Accessories',
     imageUrl: bandanaImg,
-    route: 'shop/sneakers'
+    route: 'shop/accessories'
   },
   {
     id: 4,
     title: 'Foods',
     imageUrl: foodImg,
-    route: 'shop/womens'
+    route: 'shop/foods'
   },
   {
     id: 5,
     title: 'Toys',
     imageUrl: toyImg,
-    route: 'shop/mens'
+    route: 'shop/toys'
   },
 ];
 

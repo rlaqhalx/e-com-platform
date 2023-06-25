@@ -21,6 +21,7 @@ import {
   getDocs,
 } from "firebase/firestore";
 
+
 // Your web app's Firebase configuration
 const firebaseConfig = {
   apiKey: "AIzaSyB04hqk9KJa1TqPXg4Ueg5w_3JB7UVFhZ4",
@@ -34,6 +35,7 @@ const firebaseConfig = {
 // Initialize Firebase
 // This is INSTANCE
 const firebaseBase = initializeApp(firebaseConfig);
+
 
 // provider = google (ex.facebook etc.)
 // This is CLASS
@@ -97,7 +99,16 @@ export const getCategoriesAndDocuments = async () => {
   const q = query(collectionRef);
 
   const querySnapshot = await getDocs(q);
-  return querySnapshot.docs.map((docSnapshot) => docSnapshot.data());
+  //return querySnapshot.docs.map((docSnapshot) => docSnapshot.data());
+  const data = querySnapshot.docs.map((docSnapshot) => docSnapshot.data());
+  // const categoryData = data.forEach((item) => {
+  //   item.forEach((item) => {
+  //     console.log(item)
+  //   })
+  // });
+  //const singleItem = categoryData.forEach((item) => console.log("??????", item))
+
+    return data;
 };
 
 export const createUserDocumentFromAuth = async (

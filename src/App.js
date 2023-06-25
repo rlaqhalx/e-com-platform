@@ -11,7 +11,9 @@ import { setCurrentUser } from './store/user/user.action';
 import {
   onAuthStateChangedListener,
   createUserDocumentFromAuth,
+  addCollectionAndDocuments
 } from './utils/firebase/firebase.utils';
+import SHOP_DATA from './shop-data-new';
 
 
 
@@ -31,6 +33,12 @@ const App = () => {
 
     return unsubscribe;
   }, [dispatch]);
+
+  useEffect(() => {
+    console.log(SHOP_DATA)
+    addCollectionAndDocuments('categories', SHOP_DATA);
+    console.log("DONENENENENE")
+  },[]);
 
   return (
     <Routes>
