@@ -1,6 +1,6 @@
 DEPLOYED HERE: https://heroic-piroshki-625b36.netlify.app
 
-# Mochi'S E-Commerce Website
+# Mochi'S (E-Commerce Website)
 Mochi's is an e-commerce website that specializes in providing a wide range of products for dogs, including clothes, food, and toys. The website is built using React, Redux, styled-components, and utilizes hooks for state management. The application is integrated with Firebase for backend services and Stripe for payment processing. The website is deployed on Netlify.
 
 ## Features
