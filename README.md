@@ -9,6 +9,7 @@ User registration and authentication: Users can create an account and log in usi
 Product listing: The website displays a catalog of dog products, categorized into clothes, food, and toys. 
 Shopping cart: Users can add products to their shopping cart, modify quantities, and proceed to checkout.
 Checkout and payment: The website integrates with Stripe to securely process payments for orders.
+Contact form: Users can send messages and inquiries through the contact form and admins can receive it through their work email and access it through database.
 
 ## Installation and Setup
 Clone the repository: git clone https://github.com/rlaqhalx/e-com-platform.git
