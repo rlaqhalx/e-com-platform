@@ -1,72 +1,52 @@
 DEPLOYED HERE: https://heroic-piroshki-625b36.netlify.app
 
-# Getting Started with Create React App
+# Mochi'S E-Commerce Website
+Mochi's is an e-commerce website that specializes in providing a wide range of products for dogs, including clothes, food, and toys. The website is built using React, Redux, styled-components, and utilizes hooks for state management. The application is integrated with Firebase for backend services and Stripe for payment processing. The website is deployed on Netlify.
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+## Features
+User registration and authentication: Users can create an account and log in using the account user has created on the website or google account.
 
-## Available Scripts
+Product listing: The website displays a catalog of dog products, categorized into clothes, food, and toys. 
+Shopping cart: Users can add products to their shopping cart, modify quantities, and proceed to checkout.
+Checkout and payment: The website integrates with Stripe to securely process payments for orders.
 
-In the project directory, you can run:
+## Installation and Setup
+Clone the repository: git clone https://github.com/rlaqhalx/e-com-platform.git
+Install dependencies: npm install
+Set up Firebase project:
 
-### `npm start`
+Create a new Firebase project at https://console.firebase.google.com/
+Enable authentication, Firestore database, and storage services
+Obtain the Firebase configuration details (API keys, etc.)
+Update the Firebase configuration in the project code
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in your browser.
+Set up Stripe:
+Create a Stripe account at https://dashboard.stripe.com/register
+Obtain the Stripe API keys
+Update the Stripe API keys in the project code
+Start the development server: npm start
+Open the website in your browser: http://localhost:3000
+Deployment
+The website is deployed on Netlify. The deployment process is automatically triggered whenever changes are pushed to the main branch of the repository.
 
-The page will reload when you make changes.\
-You may also see any lint errors in the console.
+To deploy the website on your own Netlify account:
+Create a new site on Netlify.
+Connect the site to your GitHub repository.
+Configure the build settings and environment variables.
+Trigger a new deployment.
 
-### `npm test`
+Contributing
+Contributions are welcome! If you'd like to contribute to the project, please follow these steps:
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Fork the repository.
+Create a new branch for your feature or bug fix: git checkout -b feature/your-feature.
+Make the necessary changes and commit them.
+Push your changes to your forked repository: git push origin feature/your-feature.
+Open a pull request in the main repository.
+License
+This project is licensed under the MIT License.
 
-### `npm run build`
+Contact
+If you have any questions or suggestions regarding the Mochi's e-commerce website, please feel free to contact us at rlaqhalx@gmail.com.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
-
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
-
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
-
-### `npm run eject`
-
-**Note: this is a one-way operation. Once you `eject`, you can't go back!**
-
-If you aren't satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
-
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you're on your own.
-
-You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
-
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
-
-### `npm run build` fails to minify
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify](https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify)
+Thank you for using Mochi's! We hope you and your furry friends enjoy the shopping experience.
