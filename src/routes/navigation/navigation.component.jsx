@@ -40,6 +40,7 @@ const Navigation = (props) => {
 
         <NavLinks>
           <NavLink to="/shop">SHOP</NavLink>
+          <NavLink to="/contact">CONTACT</NavLink>
 
           {currentUser ? (
             <>
