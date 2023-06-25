@@ -139,7 +139,7 @@ const SHOP_DATA = [
         price: 90,
       },
       {
-        id: 21,
+        id: 22,
         name: "Raincoat For Shiba Inu",
         imageUrl: "https://i.ibb.co/2NFqmBp/raincoat-5.webp",
         price: 90,
